@@ -1,5 +1,6 @@
 ﻿using Library.DataStructures.Lists;
 using Xunit;
+
 namespace Library.DataStructures.UnitTests
 {
     public class QueueTests

@@ -1,10 +1,13 @@
-﻿using System;
-
-using System.Text;
+﻿using Xunit;
 
 namespace Library.DataStructures.UnitTests
 {
-    class SplayTreeTests
+    public class SplayTreeTests
     {
+        [Fact]
+        public void UnitTest1()
+        {
+            Assert.True(true);
+        }
     }
 }

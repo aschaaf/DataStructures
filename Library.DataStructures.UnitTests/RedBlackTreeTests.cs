@@ -1,10 +1,13 @@
-﻿using System;
-
-using System.Text;
+﻿using Xunit;
 
 namespace Library.DataStructures.UnitTests
 {
-    class RedBlackTreeTests
+    public class RedBlackTreeTests
     {
+        [Fact]
+        public void UnitTest1()
+        {
+            Assert.True(true);
+        }
     }
 }
