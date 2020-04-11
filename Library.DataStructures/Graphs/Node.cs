@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Library.DataStructures.Lists;
 
 namespace Library.DataStructures.Graphs
 {
@@ -10,14 +8,14 @@ namespace Library.DataStructures.Graphs
         public bool IsVisited;
         public int DistanceFromSource;
         public Node<T> PreviousNode;
-        public List<Edge<T>> Adjacent;
+        public LinkedList<Edge<T>> Adjacent;
 
         public Node(T val)
         {
             Value = val;
             IsVisited = false;
             DistanceFromSource = int.MaxValue;
-            Adjacent = new List<Edge<T>>();
+            Adjacent = new LinkedList<Edge<T>>();
         }
     }
 }

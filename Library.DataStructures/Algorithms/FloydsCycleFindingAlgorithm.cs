@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using Library.DataStructures.Lists;
+﻿using Library.DataStructures.Lists;
 
 namespace Library.DataStructures.Algorithms
 {

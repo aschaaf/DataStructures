@@ -6,7 +6,6 @@ namespace Library.DataStructures
     {
         static void Main(string[] args)
         {
-
             Console.ReadKey();
         }
     }

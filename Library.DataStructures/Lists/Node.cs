@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Library.DataStructures.Lists
+﻿namespace Library.DataStructures.Lists
 {
     public class Node<T>
     {

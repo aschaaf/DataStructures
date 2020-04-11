@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Library.DataStructures.Graphs;
+﻿using Library.DataStructures.Graphs;
 
 namespace Library.DataStructures.Algorithms
 {
@@ -20,13 +17,17 @@ namespace Library.DataStructures.Algorithms
                 return true;
             }
 
-            foreach (var child in source.Adjacent)
+            var current = source.Adjacent.Head;
+            while (current != null)
             {
+                var child = current.Value;
                 if (HasPath(child.Destination, destination))
                 {
                     return true;
                 }
+                current = current.Next;
             }
+            
             return false;
         }
     }

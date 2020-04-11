@@ -165,7 +165,6 @@ namespace Library.DataStructures.Lists
             return FloydsCycleFindingAlgorithm<T>.HasCycle(Head);
         }
 
-        
         public int Size()
         {
             return size;

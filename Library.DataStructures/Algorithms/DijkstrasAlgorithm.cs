@@ -1,36 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Library.DataStructures.Lists;
 using Library.DataStructures.Graphs;
 
 namespace Library.DataStructures.Algorithms
 {
     public static class DijkstrasAlgorithm<T>
     {
-        public static void Run(Node<T> start)
+        public static void Run(Graphs.Node<T> start)
         {
             start.DistanceFromSource = 0;
             start.IsVisited = true;
 
             var queue = new Queue<Edge<T>>();
-            foreach (var edge in start.Adjacent)
+
+            var current = start.Adjacent.Head;
+            while (current != null)
             {
-                queue.Enqueue(edge);
+                var edge = current.Value;
+                queue.Push(edge);
+                current = current.Next;
             }
 
-            while (queue.Count > 0)
+            while (queue.Size > 0)
             {
-                var currentEdge = queue.Dequeue();
+                var currentEdge = queue.Pop();
                 var currentNode = currentEdge.Source;
                 var destinationNode = currentEdge.Destination;
-                foreach (var edge in destinationNode.Adjacent)
-                {
-                    if (!edge.Destination.IsVisited)
-                    {
-                        queue.Enqueue(edge);
-                    }
-                }
 
+                var adjNode = destinationNode.Adjacent.Head;
+                while (adjNode != null)
+                {
+                    var edge = adjNode.Value;
+                    if(!edge.Destination.IsVisited)
+                    {
+                        queue.Push(edge);
+                    }
+                    adjNode = adjNode.Next;
+                }
+                
                 if (currentNode.DistanceFromSource + currentEdge.Weight < destinationNode.DistanceFromSource)
                 {
                     destinationNode.DistanceFromSource = currentNode.DistanceFromSource + currentEdge.Weight;

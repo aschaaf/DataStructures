@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Library.DataStructures.Graphs;
+﻿using Library.DataStructures.Lists;
 
 namespace Library.DataStructures.Algorithms
 {
     public static class BreadthFirstSearch<T>
     {
-        public static bool HasPath(Node<T> source, Node<T> destination)
+        public static bool HasPath(Graphs.Node<T> source, Graphs.Node<T> destination)
         {
-            var nextToVisit = new Queue<Node<T>>();
-            nextToVisit.Enqueue(source);
+            var nextToVisit = new Queue<Graphs.Node<T>>();
+            nextToVisit.Push(source);
 
-            while (nextToVisit.Count > 0)
+            while (nextToVisit.Size > 0)
             {
-                var node = nextToVisit.Dequeue();
+                var node = nextToVisit.Pop();
 
                 if (node == destination)
                 {
@@ -27,9 +24,12 @@ namespace Library.DataStructures.Algorithms
                 }
                 node.IsVisited = true;
 
-                foreach (var neighbor in node.Adjacent)
+                var current = node.Adjacent.Head;
+                while (current != null)
                 {
-                    nextToVisit.Enqueue(neighbor.Destination);
+                    var edge = current.Value;
+                    nextToVisit.Push(edge.Destination);
+                    current = current.Next;
                 }
             }
             return false;

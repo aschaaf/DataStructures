@@ -1,6 +1,5 @@
 ﻿using System;
 using Library.DataStructures.Lists;
-using Library.DataStructures.Algorithms;
 
 namespace Library.DataStructures.Trees
 {
